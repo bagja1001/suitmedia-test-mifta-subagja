@@ -183,14 +183,15 @@ a     { text-decoration: none; color: inherit; }
   opacity: 0.9;
 }
 
-/* Diagonal slant — matches photo */
+/* Diagonal slant — matches reference photo (steep slope from bottom-left to upper-right) */
 .banner__slant {
   position: absolute;
   bottom: -1px; left: 0; right: 0;
-  height: 72px;
+  height: 130px;
   background: #fff;
-  clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 100%, 100% 0%, 100% 100%, 0% 100%);
   z-index: 3;
+  pointer-events: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
@@ -348,16 +349,16 @@ a     { text-decoration: none; color: inherit; }
 /* Shared base for nav & page buttons */
 .pag__nav,
 .pag__page {
-  min-width: 36px;
-  height: 36px;
-  padding: 0 0.4rem;
-  border-radius: 50%;          /* circle shape like photo */
-  font-size: 0.9rem;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 0.35rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #444;
+  color: #333;
   background: transparent;
   border: none;
-  transition: background 0.15s, color 0.15s, transform 0.1s;
+  transition: background 0.15s, color 0.15s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -370,26 +371,27 @@ a     { text-decoration: none; color: inherit; }
   color: #FF6700;
 }
 
-.pag__nav:disabled { opacity: 0.3; cursor: not-allowed; }
+.pag__nav:disabled { color: #ccc; cursor: not-allowed; }
 
-/* Active page — solid orange circle, white text (matches photo) */
+/* Active page — solid orange rounded rectangle, white text (matches photo) */
 .pag__page--active {
   background: #FF6700 !important;
   color: #fff !important;
   font-weight: 700;
+  border-radius: 8px;
 }
 
 .pag__nav {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #888;
+  color: #333;
 }
 
 .pag__ellipsis {
-  color: #aaa;
-  padding: 0 0.15rem;
-  font-size: 0.9rem;
-  line-height: 36px;
+  color: #888;
+  padding: 0 0.2rem;
+  font-size: 0.875rem;
+  line-height: 32px;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════ */
