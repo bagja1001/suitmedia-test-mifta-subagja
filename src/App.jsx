@@ -39,8 +39,10 @@ function setUrlParams(page, perPage, sort) {
   window.history.replaceState({}, '', u.toString());
 }
 
+const API_BASE_URL = 'https://suitmedia-backend.suitdev.com';
+
 function buildApiUrl(page, perPage, sort) {
-  return `/api/ideas?page[number]=${page}&page[size]=${perPage}&append[]=small_image&append[]=medium_image&sort=${sort}`;
+  return `${API_BASE_URL}/api/ideas?page[number]=${page}&page[size]=${perPage}&append[]=small_image&append[]=medium_image&sort=${sort}`;
 }
 
 function formatDate(str) {
@@ -179,9 +181,9 @@ export default function App() {
   }, [page, perPage, sort]);
 
   // ── parallax ──────────────────────────────────────────────────────────────
-  const bannerH     = bannerRef.current?.offsetHeight || 460;
-  const parallaxImg = Math.min(scrollY * 0.35, bannerH * 0.25);
-  const parallaxTxt = Math.min(scrollY * 0.12, bannerH * 0.08);
+  const bannerH     = bannerRef.current?.offsetHeight || 440;
+  const parallaxImg = Math.min(scrollY * 0.3, 100);
+  const parallaxTxt = Math.min(scrollY * 0.15, 50);
 
   // ── item range ────────────────────────────────────────────────────────────
   const firstItem = totalItems === 0 ? 0 : (page - 1) * perPage + 1;

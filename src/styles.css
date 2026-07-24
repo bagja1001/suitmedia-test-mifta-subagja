@@ -138,12 +138,12 @@ a     { text-decoration: none; color: inherit; }
   position: relative;
   height: 440px;
   overflow: hidden;
-  margin-top: 68px;   /* offset for fixed header */
+  background-color: #1a1a1a; /* fallback dark background */
 }
 
 .banner__bg {
   position: absolute;
-  inset: -60px 0 -60px 0;
+  inset: -150px 0 -150px 0; /* generous overflow to prevent gap on parallax translate */
   will-change: transform;
 }
 
@@ -165,7 +165,7 @@ a     { text-decoration: none; color: inherit; }
   align-items: center; justify-content: center;
   text-align: center;
   color: #fff;
-  padding: 0 2rem;
+  padding: 68px 2rem 0; /* offset for fixed header */
   will-change: transform;
 }
 
