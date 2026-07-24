@@ -53,12 +53,20 @@ function formatDate(str) {
 }
 
 // ─── Pagination pages builder ─────────────────────────────────────────────────
-// Matches photo: « ‹ 1 2 3 ... lastPage › »
+// Shows 5 consecutive page numbers: 1 2 3 4 5
 function buildPageList(current, total) {
   if (total <= 5) return Array.from({ length: total }, (_, i) => i + 1);
-  if (current <= 3) return [1, 2, 3, '...', total];
-  if (current >= total - 2) return [1, '...', total - 2, total - 1, total];
-  return [1, '...', current - 1, current, current + 1, '...', total];
+  let start = Math.max(1, current - 2);
+  let end = start + 4;
+  if (end > total) {
+    end = total;
+    start = Math.max(1, end - 4);
+  }
+  const pages = [];
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+  return pages;
 }
 
 // ─── IdeaCard ─────────────────────────────────────────────────────────────────
